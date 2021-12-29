@@ -4,7 +4,7 @@
 
 <script setup>
 import { useRouter } from "vue-router";
-const isLoggedIn = !!localStorage.getItem("isLoggedIn");
+const isLoggedIn = !!localStorage.getItem("token");
 if (!isLoggedIn) {
   useRouter().push({
     name: "login",

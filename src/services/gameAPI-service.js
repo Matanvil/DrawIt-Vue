@@ -6,24 +6,24 @@ export const startGame = (player) => {
     },
     body: JSON.stringify({
       player,
-    }).then((response) => response.json()),
-  });
+    }),
+  }).then((response) => response.json());
 };
 
 export const getStatus = () => {
   return fetch("https://draw-something-demo.herokuapp.com/api/status", {
     headers: {
       token: localStorage.getItem("token"),
-    }.then((response) => response.json()),
-  });
+    },
+  }).then((response) => response.json());
 };
 
 export const getDrawing = () => {
   return fetch("https://draw-something-demo.herokuapp.com/api/drawing", {
     headers: {
       token: localStorage.getItem("token"),
-    }.then((response) => response.json()),
-  });
+    },
+  }).then((response) => response.json());
 };
 
 export const setDrawing = (draw) => {
@@ -35,6 +35,6 @@ export const setDrawing = (draw) => {
     },
     body: JSON.stringify({
       draw,
-    }).then((response) => response.json()),
-  });
+    }),
+  }).then((response) => response.json());
 };

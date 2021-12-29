@@ -1,11 +1,12 @@
 <script setup>
 import { useRouter } from "vue-router";
 import { ref } from "vue";
+import { startGame } from "../services/gameAPI-service";
 const player = ref("");
 const router = useRouter();
-const login = () => {
-  localStorage.setItem("isLoggedIn", 1);
-  alert("logged in " + player.value);
+const login = async () => {
+  const data = await startGame(player.value)
+  localStorage.setItem('token', data.token)
   router.push({
     name: "game",
   });
