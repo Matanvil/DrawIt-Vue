@@ -38,3 +38,16 @@ export const setDrawing = (draw) => {
     }),
   }).then((response) => response.json());
 };
+
+export const guessWord = (word) => {
+  return fetch("https://draw-something-demo.herokuapp.com/api/word", {
+    method: "POST",
+    headers: {
+      "content-type": "application/json",
+      token: localStorage.getItem("token"),
+    },
+    body: JSON.stringify({
+      word,
+    }),
+  }).then((response) => response.status === 200);
+}

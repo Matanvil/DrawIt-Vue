@@ -1,20 +1,7 @@
 <script setup>
-import { onUnmounted, ref } from "vue";
-import { getStatus } from "../services/gameAPI-service";
+import { useGameStatus } from "../compositions/gameStatus";
 
-const me = ref({});
-const players = ref([]);
-const loadStatus = async () => {
-  const data = await getStatus();
-  data.players[0].points = 100;
-  me.value = data.me;
-  players.value = data.players;
-};
-loadStatus();
-const getStatusInterval = setInterval(loadStatus, 5000);
-onUnmounted(() => {
-  clearInterval(getStatusInterval);
-});
+const { me, players } = useGameStatus();
 </script>
 
 <template>
@@ -42,5 +29,4 @@ onUnmounted(() => {
   color: red;
   font-weight: bold;
 }
-
 </style>
