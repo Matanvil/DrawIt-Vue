@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from "vue";
-import { getDrawing, guessWord } from "../services/gameAPI-service";
+import { guessWord } from "../services/gameAPI-service";
 import { useGameDrawing } from "../compositions/gameDrawing";
 defineProps({
   width: String,
@@ -35,5 +35,11 @@ const sendWord = async () => {
 img {
   width: v-bind("$props.width");
   height: v-bind("$props.height");
+}
+input, button {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid
+
 }
 </style>

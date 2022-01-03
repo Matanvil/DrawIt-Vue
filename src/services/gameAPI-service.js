@@ -36,7 +36,7 @@ export const setDrawing = (draw) => {
     body: JSON.stringify({
       draw,
     }),
-  }).then((response) => response.json());
+  });
 };
 
 export const guessWord = (word) => {

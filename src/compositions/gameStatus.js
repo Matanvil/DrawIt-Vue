@@ -8,7 +8,6 @@ const round = ref({});
 export const initGameStatus = () => {
   const loadStatus = async () => {
     const data = await getStatus();
-    data.players[0].points = 100;
     me.value = data.me;
     players.value = data.players;
     round.value = data.round;
